@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</a>
+<div  th:each="po : ${po}" >
+    <span th:text="${po.id}"></span>
+    <span th:text="${po.title}"></span>
+    <span th:text="${po.content}"></span>
+    <span th:text="${po.createAt}"></span>
+    <span th:text="${po.likes}"></span>
+
+    <a th:href="@{/posts/edit/__${po.id}__}">Sửa</a>
+</div>
+</body>
+</html>

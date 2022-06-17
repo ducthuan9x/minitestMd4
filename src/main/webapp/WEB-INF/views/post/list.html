@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/posts/create">
+    Tạo mới
+</a>
+<form action="/posts/search" method="post">
+    <input type="text" name="title">
+    <button >Search</button>
+</form>
+
+<div  th:each="po : ${posts}" >
+    <span th:text="${po.title}"></span>
+    <span th:text="${po.content}"></span>
+    <span th:text="${po.createAt}"></span>
+    <span th:text="${po.likes}"></span>
+    <a th:href="@{/posts/edit/__${po.id}__}">Sửa</a>
+</div>
+</body>
+</html>
