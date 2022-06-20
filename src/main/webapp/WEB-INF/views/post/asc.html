@@ -12,6 +12,8 @@
     <span th:text="${po.content}"></span>
     <span th:text="${po.createAt}"></span>
     <span th:text="${po.likes}"></span>
+
+    <a th:href="@{/posts/edit/__${po.id}__}">Sửa</a>
 </div>
 <div>
     <a th:href="@{'/posts'(page=${po.number - 1})}" th:if="${po.hasPrevious()}">Previous</a>

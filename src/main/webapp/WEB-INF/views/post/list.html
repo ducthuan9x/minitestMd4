@@ -11,7 +11,15 @@
 </a>
 <form action="/posts/search" method="post">
     <input type="text" name="title">
+    <input type="datetime-local" name="dateFrom">
+    <input type="datetime-local" name="dateTo">
     <button >Search</button>
+</form>
+<form action="/posts/asc" method="post">
+    <button >post List asc</button>
+</form>
+<form action="/posts/top5desc" method="post">
+    <button >top 5 asc</button>
 </form>
 
 <div  th:each="po : ${posts}" >
@@ -20,6 +28,11 @@
     <span th:text="${po.createAt}"></span>
     <span th:text="${po.likes}"></span>
     <a th:href="@{/posts/edit/__${po.id}__}">Sửa</a>
+</div>
+<div>
+    <a th:href="@{'/posts'(page=${posts.number - 1})}" th:if="${posts.hasPrevious()}">Previous</a>
+    <span th:text="${posts.number + 1}"></span>/<span th:text="${posts.totalPages}"></span>
+    <a th:href="@{'/posts'(page=${posts.number + 1})}" th:if="${posts.hasNext()}">Next</a>
 </div>
 </body>
 </html>
